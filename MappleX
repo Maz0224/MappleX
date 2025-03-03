@@ -34,11 +34,38 @@ local Window = Rayfield:CreateWindow({
 })
 ------------------------
 local MainTab = Window:CreateTab("General", 4483362458) -- Title, Image
-local Section = Tab:CreateSection("Player 👤")
+local Section = MainTab:CreateSection("Player 👤")
 
-Rayfield:Notify({
-   Title = "Notification Title",
-   Content = "Notification Content",
-   Duration = 6.5,
-   Image = "rewind",
+local SpeedSlider = MainTab:CreateSlider({
+   Name = "Player Speed",
+   Range = {0, 1000},
+   Increment = 1,
+   Suffix = "speed",
+   CurrentValue = 36,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+game.Players.LocalPlayer.Character.Humaniod.WalkSpeed = Value
+   end,
 })
+
+local JumpSlider = MainTab:CreateSlider({
+   Name = "Player Jump Power",
+   Range = {0, 1000},
+   Increment = 1,
+   Suffix = "jump power",
+   CurrentValue = 50,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+game.Players.LocalPlayer.Character.Humaniod.JumpPower = Value
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Reset",
+   Callback = function()
+SpeedSlider:Set(36) -- The new slider integer value
+JumpSlider:Set(50) -- The new slider integer value
+   end,
+})
+
+
