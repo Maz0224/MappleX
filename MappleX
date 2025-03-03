@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "Mapple X",
-   Icon = apple, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "Mapple X",
    LoadingSubtitle = "Universal Script 📌",
    Theme = "Amethyst", -- Check https://docs.sirius.menu/rayfield/configuration/themes
@@ -31,4 +31,14 @@ local Window = Rayfield:CreateWindow({
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
       Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
+})
+------------------------
+local MainTab = Window:CreateTab("General", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Player 👤")
+
+Rayfield:Notify({
+   Title = "Notification Title",
+   Content = "Notification Content",
+   Duration = 6.5,
+   Image = "rewind",
 })
