@@ -70,4 +70,55 @@ JumpSlider:Set(50) -- The new slider integer value
    end,
 })
 
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
 
+local hitboxSize = 0
+local hitboxEnabled = false
+local hitboxPart = Instance.new("Part")
+
+hitboxPart.Size = HumanoidRootPart.Size
+hitboxPart.Transparency = 0.95
+hitboxPart.Color = Color3.new(1, 0, 0)
+hitboxPart.Anchored = true
+hitboxPart.CanCollide = false
+hitboxPart.Parent = game.Workspace
+
+local function updateHitbox()
+   hitboxPart.Size = Vector3.new(2 + hitboxSize, 2 + hitboxSize, 1 + hitboxSize)
+   hitboxPart.Position = HumanoidRootPart.Position
+   hitboxPart.Transparency = hitboxEnabled and 0.95 or 1
+end
+
+local Slider = MainTab:CreateSlider({
+   Name = "Hitbox Size",
+   Range = {0, 10},
+   Increment = 1,
+   Suffix = "Studs",
+   CurrentValue = 0,
+   Flag = "HitboxSlider",
+   Callback = function(Value)
+       hitboxSize = Value
+       if hitboxEnabled then
+           updateHitbox()
+       end
+   end,
+})
+
+local Toggle = MainTab:CreateToggle({
+   Name = "Hitbox Expander",
+   CurrentValue = false,
+   Flag = "HitboxToggle",
+   Callback = function(Value)
+       hitboxEnabled = Value
+       updateHitbox()
+   end,
+})
+
+game:GetService("RunService").RenderStepped:Connect(function()
+   if hitboxEnabled then
+       hitboxPart.Position = HumanoidRootPart.Position
+   end
+end)
