@@ -70,7 +70,7 @@ JumpSlider:Set(50) -- The new slider integer value
    end,
 })
 
-local Divider = MainTab:CreateDivider()
+local Section = MainTab:CreateSection(" ")
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
