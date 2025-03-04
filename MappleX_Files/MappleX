@@ -127,8 +127,8 @@ end)
 
 ----------
 
-local Section = GamesTab:CreateSection("Games 🎮", nil)
-Section:GamesTab("Mapple X")
+local Tab = GamesTab:CreateTab("Games 🎮", nil)
+local Section:GamesTab("Mapple X")
 
 local Button = GamesTab:CreateButton({
    Name = "Jenga",
