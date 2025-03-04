@@ -131,9 +131,9 @@ local GamesTab = Window:CreateTab("Games 🎮", nil) -- Title, Image
 local Section = GamesTab:CreateSection("MappleX")
 
 local Button = GamesTab:CreateButton({
-   Name = "Jenga",
+   Name = "Blocks n' Props",
    Callback = function()
-RayField:Destroy()
+Rayfield:Destroy()
 loadstring(game:httpGet('https://raw.githubusercontent.com/Maz0224/MappleX/refs/heads/main/MappleX_Files/SideHubs/Blocks%20n’%20Props'))()
    end,
 })
