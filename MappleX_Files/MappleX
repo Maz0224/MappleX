@@ -134,7 +134,7 @@ local Button = GamesTab:CreateButton({
    Name = "Blocks n' Props",
    Callback = function()
 loadstring(game:httpGet('https://raw.githubusercontent.com/Maz0224/MappleX/refs/heads/main/MappleX_Files/SideHubs/Blocks%20n’%20Props'))()
-wait(0.1)
+wait(1)
 Rayfield:Destroy()
    end,
 })
