@@ -70,7 +70,7 @@ JumpSlider:Set(50) -- The new slider integer value
    end,
 })
 
-local Section = MainTab:CreateSection(" ")
+local Divider = MainTab:CreateDivider()
 
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -124,3 +124,16 @@ game:GetService("RunService").RenderStepped:Connect(function()
        hitboxPart.Position = HumanoidRootPart.Position
    end
 end)
+
+----------
+
+local Section = GamesTab:CreateSection("Games 🎮")
+Section:GamesTab("Mapple X")
+
+local Button = GamesTab:CreateButton({
+   Name = "Jenga",
+   Callback = function()
+RayField:Destroy()
+loadstring(game:httpGet('https://raw.githubusercontent.com/Maz0224/MappleX/refs/heads/main/MappleX_Files/SideHubs/Blocks%20n’%20Props'))()
+   end,
+})
