@@ -125,6 +125,18 @@ game:GetService("RunService").RenderStepped:Connect(function()
    end
 end)
 
+local Section = MainTab:CreateSection("Control")
+
+local Button = MainTab:CreateButton({
+   Name = "Button Example",
+   Callback = function()
+game.Players.LocalPlayer.Humaniod.Jump = true
+task.wait()
+game.Players.LocalPlayer.Humaniod.Jump = false
+   end,
+})
+
+
 ----------
 
 local GamesTab = Window:CreateTab("Games 🎮", nil) -- Title, Image
