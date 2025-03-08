@@ -128,11 +128,11 @@ end)
 local Section = MainTab:CreateSection("Control")
 
 local Button = MainTab:CreateButton({
-   Name = "Button Example",
+   Name = "Jump",
    Callback = function()
-game.Players.LocalPlayer.Humaniod.Jump = true
+game.Players.LocalPlayer.Humanoid.Jump = true
 task.wait()
-game.Players.LocalPlayer.Humaniod.Jump = false
+game.Players.LocalPlayer.Humanoid.Jump = false
    end,
 })
 
